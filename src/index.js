@@ -8,7 +8,8 @@ const app = express();
 const server = require('http').Server(app)
 const io = require('socket.io')(server)
 
-mongoose.connect('mongodb://localhost/instagram-copy',
+const url_database = process.env.MONGODB_URI ? process.env.MONGODB_URI : 'mongodb://localhost/instagram-copy'
+    mongoose.connect(url_database,
     {useNewUrlParser: true}
     )
 
